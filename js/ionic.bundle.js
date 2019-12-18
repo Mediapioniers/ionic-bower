@@ -4807,7 +4807,9 @@ ionic.views.Scroll = ionic.views.View.inherit({
       startY: 0,
 
       /** The amount to dampen mousewheel events */
-      wheelDampen: 6,
+      // Firefox needs a way lower amount then other browsers
+      // Detecting FireFox by Firefox's API to install add-ons: InstallTrigger
+      wheelDampen: typeof InstallTrigger !== 'undefined' ? .05 : 5,
 
       /** The minimum size the scrollbars scale to while scrolling */
       minScrollbarSizeX: 5,
