@@ -857,6 +857,15 @@ window.ionic.version = '1.3.1';
    */
   var touch_triggered = false;
 
+  var supportsPassive = false;
+  try {
+      addEventListener('test', null, {
+          get passive() {
+              supportsPassive = true;
+          }
+      });
+  } catch (e) {
+  }
 
   ionic.Gestures.event = {
     /**
@@ -868,7 +877,7 @@ window.ionic.version = '1.3.1';
     bindDom: function(element, type, handler) {
       var types = type.split(' ');
       for(var t = 0; t < types.length; t++) {
-        element.addEventListener(types[t], handler, false);
+        element.addEventListener(types[t], handler, supportsPassive ? {passive: true} : false);
       }
     },
 
