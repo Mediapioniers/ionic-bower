@@ -2314,7 +2314,7 @@ window.ionic.version = '1.3.1';
         platformName = n.toLowerCase();
       } else if (getParameterByName('ionicplatform')) {
         platformName = getParameterByName('ionicplatform');
-      } else if (self.ua.indexOf('Edge') > -1) {
+      } else if (self.ua.indexOf('Edg') > -1) {
         platformName = EDGE;
       } else if (self.ua.indexOf('Windows Phone') > -1) {
         platformName = WINDOWS_PHONE;
